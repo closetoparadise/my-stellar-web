@@ -10,33 +10,86 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ServicesRouteImport } from './routes/services'
+import { Route as ServicesContentStrategyRouteImport } from './routes/services.content-strategy'
+import { Route as ServicesLinkBuildingRouteImport } from './routes/services.link-building'
+import { Route as ServicesTechnicalSeoRouteImport } from './routes/services.technical-seo'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ServicesRoute = ServicesRouteImport.update({
+  id: '/services',
+  path: '/services',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesContentStrategyRoute = ServicesContentStrategyRouteImport.update({
+  id: '/content-strategy',
+  path: '/content-strategy',
+  getParentRoute: () => ServicesRoute,
+} as any)
+const ServicesLinkBuildingRoute = ServicesLinkBuildingRouteImport.update({
+  id: '/link-building',
+  path: '/link-building',
+  getParentRoute: () => ServicesRoute,
+} as any)
+const ServicesTechnicalSeoRoute = ServicesTechnicalSeoRouteImport.update({
+  id: '/technical-seo',
+  path: '/technical-seo',
+  getParentRoute: () => ServicesRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/services': typeof ServicesRouteWithChildren
+  '/services/content-strategy': typeof ServicesContentStrategyRoute
+  '/services/link-building': typeof ServicesLinkBuildingRoute
+  '/services/technical-seo': typeof ServicesTechnicalSeoRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/services': typeof ServicesRouteWithChildren
+  '/services/content-strategy': typeof ServicesContentStrategyRoute
+  '/services/link-building': typeof ServicesLinkBuildingRoute
+  '/services/technical-seo': typeof ServicesTechnicalSeoRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/services': typeof ServicesRouteWithChildren
+  '/services/content-strategy': typeof ServicesContentStrategyRoute
+  '/services/link-building': typeof ServicesLinkBuildingRoute
+  '/services/technical-seo': typeof ServicesTechnicalSeoRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/services'
+    | '/services/content-strategy'
+    | '/services/link-building'
+    | '/services/technical-seo'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/services'
+    | '/services/content-strategy'
+    | '/services/link-building'
+    | '/services/technical-seo'
+  id:
+    | '__root__'
+    | '/'
+    | '/services'
+    | '/services/content-strategy'
+    | '/services/link-building'
+    | '/services/technical-seo'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ServicesRoute: typeof ServicesRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +101,56 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/services': {
+      id: '/services'
+      path: '/services'
+      fullPath: '/services'
+      preLoaderRoute: typeof ServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/content-strategy': {
+      id: '/services/content-strategy'
+      path: '/content-strategy'
+      fullPath: '/services/content-strategy'
+      preLoaderRoute: typeof ServicesContentStrategyRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/link-building': {
+      id: '/services/link-building'
+      path: '/link-building'
+      fullPath: '/services/link-building'
+      preLoaderRoute: typeof ServicesLinkBuildingRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/technical-seo': {
+      id: '/services/technical-seo'
+      path: '/technical-seo'
+      fullPath: '/services/technical-seo'
+      preLoaderRoute: typeof ServicesTechnicalSeoRouteImport
+      parentRoute: typeof ServicesRoute
+    }
   }
 }
 
+interface ServicesRouteChildren {
+  ServicesContentStrategyRoute: typeof ServicesContentStrategyRoute
+  ServicesLinkBuildingRoute: typeof ServicesLinkBuildingRoute
+  ServicesTechnicalSeoRoute: typeof ServicesTechnicalSeoRoute
+}
+
+const ServicesRouteChildren: ServicesRouteChildren = {
+  ServicesContentStrategyRoute: ServicesContentStrategyRoute,
+  ServicesLinkBuildingRoute: ServicesLinkBuildingRoute,
+  ServicesTechnicalSeoRoute: ServicesTechnicalSeoRoute,
+}
+
+const ServicesRouteWithChildren = ServicesRoute._addFileChildren(
+  ServicesRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ServicesRoute: ServicesRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
