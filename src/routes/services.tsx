@@ -75,8 +75,8 @@ function ServicesPage() {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-border border border-border mb-24">
         {services.map((service) => (
           <Link
-            key={service.slug}
-            to={`/services/${service.slug}`}
+            key={service.to}
+            to={service.to}
             className="block bg-background p-10 group hover:bg-secondary transition-colors"
           >
             <span className="font-mono text-xs text-accent mb-6 block tracking-tighter">
