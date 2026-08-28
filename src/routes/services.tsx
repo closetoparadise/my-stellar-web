@@ -24,9 +24,17 @@ export const Route = createFileRoute("/services")({
   component: ServicesPage,
 });
 
-const services = [
+type Service = {
+  to: "/services/technical-seo" | "/services/content-strategy" | "/services/link-building";
+  number: string;
+  label: string;
+  title: string;
+  description: string;
+};
+
+const services: Service[] = [
   {
-    slug: "technical-seo",
+    to: "/services/technical-seo",
     number: "01",
     label: "TECHNICAL AUDIT",
     title: "Infrastructure Health",
@@ -34,7 +42,7 @@ const services = [
       "Comprehensive crawling, core web vitals, and schema architecture for search indexing precision.",
   },
   {
-    slug: "content-strategy",
+    to: "/services/content-strategy",
     number: "02",
     label: "CONTENT STRATEGY",
     title: "Semantic Authority",
@@ -42,7 +50,7 @@ const services = [
       "Building topical clusters that satisfy user intent and demonstrate deep platform expertise.",
   },
   {
-    slug: "link-building",
+    to: "/services/link-building",
     number: "03",
     label: "LINK ACQUISITION",
     title: "Digital PR & Outreach",
