@@ -20,7 +20,9 @@ export const Route = createFileRoute("/")({
           "Helping engineering-led companies outrank the noise with technical SEO audits, semantic content strategies, and precision link building.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "/" },
     ],
+    links: [{ rel: "canonical", href: "/" }],
   }),
   component: Index,
 });

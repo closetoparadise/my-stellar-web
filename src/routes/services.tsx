@@ -19,7 +19,9 @@ export const Route = createFileRoute("/services")({
           "Technical SEO audits, semantic content strategy, and digital PR link building for high-growth companies.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "/services" },
     ],
+    links: [{ rel: "canonical", href: "/services" }],
   }),
   component: ServicesPage,
 });

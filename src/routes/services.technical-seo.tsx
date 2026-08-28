@@ -20,7 +20,9 @@ export const Route = createFileRoute("/services/technical-seo")({
           "In-depth technical SEO audits covering crawling, rendering, Core Web Vitals, schema markup, and indexability.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "/services/technical-seo" },
     ],
+    links: [{ rel: "canonical", href: "/services/technical-seo" }],
   }),
   component: TechnicalSEOPage,
 });

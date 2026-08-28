@@ -20,7 +20,9 @@ export const Route = createFileRoute("/services/link-building")({
           "White-hat link building and digital PR that earns authoritative backlinks from relevant industry publications.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "/services/link-building" },
     ],
+    links: [{ rel: "canonical", href: "/services/link-building" }],
   }),
   component: LinkBuildingPage,
 });

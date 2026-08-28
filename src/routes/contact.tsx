@@ -19,7 +19,9 @@ export const Route = createFileRoute("/contact")({
           "Get in touch with Vance SEO for a technical SEO audit or content strategy project.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "/contact" },
     ],
+    links: [{ rel: "canonical", href: "/contact" }],
   }),
   component: ContactPage,
 });

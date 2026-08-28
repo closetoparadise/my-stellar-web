@@ -19,7 +19,9 @@ export const Route = createFileRoute("/about")({
           "Learn about Vance SEO's methodology and approach to technical SEO, content strategy, and link building.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "/about" },
     ],
+    links: [{ rel: "canonical", href: "/about" }],
   }),
   component: AboutPage,
 });

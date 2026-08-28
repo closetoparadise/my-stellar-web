@@ -20,7 +20,9 @@ export const Route = createFileRoute("/services/content-strategy")({
           "Semantic content strategies, topical clusters, and intent-driven editorial calendars that build authority and rank.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "/services/content-strategy" },
     ],
+    links: [{ rel: "canonical", href: "/services/content-strategy" }],
   }),
   component: ContentStrategyPage,
 });
