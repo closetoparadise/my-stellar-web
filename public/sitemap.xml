@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://id-preview--42675d07-cca2-4403-9ba8-a63886dc5883.lovable.app/</loc>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://id-preview--42675d07-cca2-4403-9ba8-a63886dc5883.lovable.app/services</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://id-preview--42675d07-cca2-4403-9ba8-a63886dc5883.lovable.app/services/technical-seo</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://id-preview--42675d07-cca2-4403-9ba8-a63886dc5883.lovable.app/services/content-strategy</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://id-preview--42675d07-cca2-4403-9ba8-a63886dc5883.lovable.app/services/link-building</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://id-preview--42675d07-cca2-4403-9ba8-a63886dc5883.lovable.app/about</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://id-preview--42675d07-cca2-4403-9ba8-a63886dc5883.lovable.app/contact</loc>
+    <priority>0.6</priority>
+  </url>
+</urlset>
